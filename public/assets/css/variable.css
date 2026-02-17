@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-header500-text:#B9C9DB;
+    --color-header400-text:#6285AC;
+    --bg-secondary300:#E8EDF3;
+    --color-primary-600: #164B87;
+    --color-primary-500:#5A6B7F;
+    --color-primary-400:#7393B7;
+    --color-primary-300: #2D5D93;
+    --color-secondary-100:#FFEFF2;
+    --color-secondary-200:#F1F1F1;
+    --color-secondary-300:#E6DEDF;
+    --color-secondary-400: #726567;
+    --color-secondary-500:#6B6767;
+    --color-secondary-600:#55526D;
+    --color-secondary-700:#4B5C51;
+    --color-secondary-800:#6C5A3D;
+    --color-secondary-900:#66494D;
+    --color-secondary-1000:#55526D;
+    --color-third-700:#586068;
+    --color-third-600:#FFEBEE;
+    --color-third-500:#FFDBE0;
+    --color-third-400:#FFF3E0;
+    --color-third-300:#F3E1C4;
+    --color-third-200:#E3F6EA;
+    --color-third-100:#BBE4CA;
+    --color-sidebar-500: #495868;
+    --color-sidebar-400:#E9EEFF;
+    --color-sidebar-300:#DCDAF5;
+    --color-neutral-100:#F0F1F3;
+    --color-neutral-100 :#CCCCCC;
+    --color-neutral-200 :#B3B3B3;
+    --color-neutral-300 :#999999;
+    --color-neutral-400 :#4C4C4C;
+    --color-input-400 : #E6E6E6;
+    --color-neutral-500 :#808080;
+    --color-neutral-600: #666666;
+    --color-neutral-700: #4F4F4F;
+    --color-neutral-800:#333333;
+    --color-success-600: #4CAF50;
+    --color-numberic-400:#7E837E;
+    --color-numberic-500:#FE7581;
+    --color-error-500: #f44336;
+    --color-error-600: #3C9161;
+    --color-error-700: #81C684;
+    --color-inventer-600:#DCDAF5;
+    --color-inventer-500: #0F355F;
+    --color-dark-500:#0C1742;
+    --color-dark-600:#071628;
+    --color-dark-700 :#191919;
+    --color-light-500:#FBFBFB;
+    --color-black:#000;
+    --color-white:#fff;
+    
+  }

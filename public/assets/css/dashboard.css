@@ -1,0 +1,373 @@
+/* * DASHBOARD STYLESHEET
+
+Organized by: Base Styles, Components, Tabs, Charts, and Animations
+*/
+
+/* --- 1. Base Styles & Resets --- */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+body {
+font-family: "Poppins", sans-serif;
+margin: 0;
+font-size: 16px;
+line-height: 1.5;
+}
+
+input,
+button,
+img {
+cursor: pointer;
+}
+
+/* --- 2. Layout & Grid --- */
+.dashboard-grid {
+display: grid;
+grid-template-columns: 384px 564px 1fr;
+gap: 1.25rem;
+align-items: stretch;
+}
+
+.dashboard-grid .card {
+background: white;
+border-radius: 12px;
+border: 1px solid #e2e8f0;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+display: flex;
+flex-direction: column;
+overflow: hidden;
+position: relative;
+opacity: 0;
+animation: fadeIn 0.8s ease-out forwards;
+}
+
+.quality-card,
+.daily-progress-card,
+.error-breakdown-card {
+background-color: #fbfbfb !important;
+}
+
+.section-title {
+font-size: 16px;
+font-weight: 700;
+color: #164b87;
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 1rem;
+}
+
+.v-divider-quality {
+border-left: 1px solid #e6eaed;
+height: 50px;
+}
+
+/* --- 3. Sidebar & Navigation --- */
+.sidebar-active {
+background-color: var(--color-sidebar-400);
+color: var(--color-dark-500);
+border-radius: 8px;
+}
+
+.sidebar-link:hover {
+animation: shake 0.3s ease-in-out;
+}
+
+.active-tab {
+color: white !important;
+position: relative;
+}
+
+.active-tab::after {
+content: "";
+position: absolute;
+bottom: -20px;
+left: 0;
+right: 0;
+height: 3px;
+background-color: #38bdf8;
+border-radius: 999px 999px 0 0;
+}
+
+/* --- 4. Inputs & Selection --- */
+.input-animated {
+transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+border: 1px solid #e5e7eb;
+}
+
+.input-animated:focus {
+border-color: #2563eb;
+box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+outline: none;
+}
+
+.select-wrapper {
+position: relative;
+}
+
+.select-wrapper::after {
+content: "";
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+pointer-events: none;
+width: 16px;
+height: 16px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+background-size: contain;
+transition: transform 0.2s ease;
+}
+
+.select-wrapper:focus-within::after {
+transform: translateY(-50%) rotate(180deg);
+}
+
+/* --- 5. Tabs & Content --- */
+.tab-content {
+display: none;
+}
+
+.tab-content.active {
+display: block;
+}
+
+.tab-item {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-active {
+background-color: #164b87;
+color: white !important;
+box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.2);
+transform: translateY(-2px);
+border-radius: 32px;
+}
+
+.tab-active span {
+color: #fff;
+}
+
+.tab-active img {
+animation: tabPop 0.3s ease forwards;
+filter: brightness(0) invert(1);
+}
+
+.tab-btn {
+padding: 6px 18px;
+border-radius: 9999px;
+font-size: 16px;
+font-weight: 500;
+transition: all 0.2s;
+/* border: 1px solid #d1d5db; */
+color: #4b5563;
+/* background: #ffffff; */
+}
+
+.tab-btn.active {
+background-color: #374151;
+color: white;
+font-weight: 600;
+border-color: #374151;
+}
+
+.text-num {
+width: 20px;
+height: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.tab-active .text-num {
+background-color: white;
+color: #000;
+}
+
+/* --- 6. Lists & Rows --- */
+.update-item {
+padding: 14px 14px;
+border-bottom: 1px solid #edeeee;
+font-size: 16px;
+color: #4c4c4c;
+}
+
+.instruction-row {
+padding: 12px 16px;
+border: 1px solid #e5e7eb;
+border-radius: 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
+background: white;
+}
+
+.instruction-text {
+color: #7393b7;
+font-size: 15px;
+font-weight: 500;
+}
+
+.view-link {
+display: flex;
+align-items: center;
+gap: 4px;
+color: #164b87;
+font-weight: 600;
+font-size: 13px;
+text-decoration: none;
+}
+
+/* --- 7. Upload & Borders --- */
+.border-dashed {
+border-radius: 12px;
+position: relative;
+min-height: 300px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: all 0.2s ease;
+background-image: linear-gradient(to right, #d1d5db 50%, rgba(255, 255, 255, 0) 0%),
+linear-gradient(to right, #d1d5db 50%, rgba(255, 255, 255, 0) 0%),
+linear-gradient(to bottom, #d1d5db 50%, rgba(255, 255, 255, 0) 0%),
+linear-gradient(to bottom, #d1d5db 50%, rgba(255, 255, 255, 0) 0%);
+background-position: left top, left bottom, left top, right top;
+background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+background-size: 25px 2px, 25px 2px, 2px 25px, 2px 25px;
+}
+@keyframes rotateBorder {
+    0% {
+      background-position: 
+        0 0,
+        0 100%,
+        0 0,
+        100% 0;
+    }
+    100% {
+      background-position: 
+        50px 0,
+        -50px 100%,
+        0 50px,
+        100% -50px;
+    }
+  }
+  
+  .border-dashed:hover {
+    animation: rotateBorder 1.5s linear infinite;
+  }
+  @keyframes floatIcon {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  .group:hover img {
+    animation: floatIcon 1s ease-in-out infinite;
+  }
+.file-item {
+animation: slideIn 0.3s ease-out;
+}
+
+/* --- 8. Chart Specific Elements --- */
+.axis-label {
+font-size: 11px;
+fill: #94a3b8;
+font-weight: 500;
+}
+
+.grid-line {
+stroke: #e2e2e2;
+stroke-width: 1px;
+}
+
+.base-line {
+stroke: #d4d4d4;
+stroke-width: 2px;
+}
+
+.quality-track {
+height: 32px;
+background: #a5d6a7;
+border-radius: 16px;
+position: relative;
+overflow: hidden;
+}
+
+.quality-fill {
+height: 100%;
+background-color: #388e3c;
+width: 70%;
+border-radius: 16px;
+}
+
+text.target-number {
+font-size: 40px;
+font-weight: 600;
+}
+
+text.target-subtext {
+font-size: 24px;
+font-weight: 400;
+fill: #a2b7cf;
+}
+
+/* --- 9. Keyframes & Animations --- */
+@keyframes bell-ring {
+0% { transform: rotate(0); }
+15% { transform: rotate(-10deg); }
+30% { transform: rotate(10deg); }
+45% { transform: rotate(-8deg); }
+60% { transform: rotate(8deg); }
+75% { transform: rotate(-4deg); }
+100% { transform: rotate(0); }
+}
+
+@keyframes shake {
+0%, 100% { transform: translateX(0); }
+25% { transform: translateX(-3px); }
+50% { transform: translateX(3px); }
+75% { transform: translateX(-2px); }
+}
+
+@keyframes tabPop {
+0% { transform: scale(1); }
+50% { transform: scale(1.15); }
+100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.notification-btn:hover img {
+animation: bell-ring 0.6s ease-in-out;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar - IE, Edge */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+  }
+  
+  /* Hide scrollbar - Firefox */
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+  @media screen and (max-width: 1600px) {
+    .instruction-row {
+        flex-direction: column;
+    }
+}
