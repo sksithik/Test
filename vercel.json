@@ -1,12 +1,8 @@
 {
     "version": 2,
-    "framework": "vite",
     "outputDirectory": "public",
     "functions": {
         "api/*.php": {
-            "runtime": "vercel-php@0.7.1"
-        },
-        "public/index.php": {
             "runtime": "vercel-php@0.7.1"
         }
     },
